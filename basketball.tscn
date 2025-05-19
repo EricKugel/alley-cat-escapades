@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://bvk5kn01rkdrl"]
+
+[ext_resource type="Texture2D" uid="uid://bcm06x6eakh04" path="res://lib/basketball/basket.png" id="1_grlq2"]
+[ext_resource type="Texture2D" uid="uid://dsg1wordcb2nc" path="res://lib/basketball/ball.png" id="2_gqdi2"]
+[ext_resource type="PackedScene" uid="uid://bt2ubb6dkf54m" path="res://allavoo.tscn" id="3_y7wm7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tbmum"]
+bounce = 0.6
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vlaxl"]
+radius = 55.0091
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oibcf"]
+distance = -626.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_blwjn"]
+distance = 13.0
+
+[node name="Basketball" type="Node2D"]
+
+[node name="Hoop" type="Node2D" parent="."]
+position = Vector2(1133, 540)
+
+[node name="Sprite2D" type="Sprite2D" parent="Hoop"]
+position = Vector2(-238.486, -209.5)
+scale = Vector2(1.11879, 1.31042)
+texture = ExtResource("1_grlq2")
+
+[node name="Ball" type="RigidBody2D" parent="."]
+position = Vector2(671, 587)
+collision_mask = 6
+physics_material_override = SubResource("PhysicsMaterial_tbmum")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+position = Vector2(30, 0)
+scale = Vector2(1.99167, 1.99167)
+texture = ExtResource("2_gqdi2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+position = Vector2(-30, -49)
+shape = SubResource("CircleShape2D_vlaxl")
+
+[node name="Allavoo" parent="." instance=ExtResource("3_y7wm7")]
+position = Vector2(245, 294)
+collision_layer = 4
+collision_mask = 3
+
+[node name="Bounds" type="StaticBody2D" parent="."]
+position = Vector2(-12, 23)
+collision_layer = 2
+
+[node name="Floor" type="CollisionShape2D" parent="Bounds"]
+shape = SubResource("WorldBoundaryShape2D_oibcf")
+
+[node name="Left" type="CollisionShape2D" parent="Bounds"]
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_blwjn")
+
+[node name="Right" type="CollisionShape2D" parent="Bounds"]
+position = Vector2(1180, 0)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_blwjn")

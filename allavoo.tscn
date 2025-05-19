@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bt2ubb6dkf54m"]
+
+[ext_resource type="Texture2D" uid="uid://c0akygp83uuw7" path="res://lib/allavoo/allavoo idle 1.png" id="1_5wsy0"]
+[ext_resource type="Script" path="res://allavoo.gd" id="1_m871x"]
+[ext_resource type="Texture2D" uid="uid://bkloltmf45xx1" path="res://lib/allavoo/allavoo idle 2.png" id="2_7uuhk"]
+[ext_resource type="Texture2D" uid="uid://qcdo5j5aba4r" path="res://lib/allavoo/allavoo walk 1.png" id="3_t2eds"]
+[ext_resource type="Texture2D" uid="uid://dcvnd1lb0864b" path="res://lib/allavoo/allavoo walk 2.png" id="4_0mn0b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_collk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5wsy0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7uuhk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_t2eds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0mn0b")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Allavoo" type="CharacterBody2D"]
+position = Vector2(500, 500)
+script = ExtResource("1_m871x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(30, 201)
+scale = Vector2(0.675, 0.675)
+sprite_frames = SubResource("SpriteFrames_collk")
+animation = &"walk"
+frame_progress = 0.268431
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-123, 130, -85, 166, -93, 196, -123, 198, -138, 178, -150, 178, -101, 263, 118, 263, 107, 194, 122, 160, 138, 162, 143, 188, 174, 209, 198, 174, 215, 218, 207, 257, 145, 271, 197, 323, 252, 326, 195, 327, 111, 331, 126, 274, -93, 270, -27, 328, -124, 336, -108, 269, -125, 266, -167, 169, -151, 134)
