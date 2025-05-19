@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="Alley Cat Escapades"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+run/main_scene="uid://bjplnlhp1yv87"
+config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
