@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp3djx8tyk5wr"]
+
+[ext_resource type="Texture2D" uid="uid://dywmcb41c472l" path="res://lib/rooftops/roof3.png" id="1_greoy"]
+
+[node name="Roof3" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_greoy")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-223, 551, -234, 97, -425, 203, -429, 159, 399, -146, 406, -102, 243, -70, 264, 547)

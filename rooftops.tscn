@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bosd2xbfbfq30"]
-
-[ext_resource type="PackedScene" uid="uid://bt2ubb6dkf54m" path="res://allavoo.tscn" id="1_m7tf1"]
-
-[node name="Rooftops" type="Node2D"]
-
-[node name="Allavoo" parent="." instance=ExtResource("1_m7tf1")]
-position = Vector2(184, 298)
